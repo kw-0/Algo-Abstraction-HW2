@@ -36,7 +36,6 @@ def LRU(cache_size, requests):
 
     return hits
 
-
 def OPTFF(cache_size, requests):
     cache = []
     hits = 0
