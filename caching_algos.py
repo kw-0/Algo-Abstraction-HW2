@@ -36,6 +36,8 @@ def LRU(cache_size, requests):
 
 
 def OPTFF(cache_size, requests):
+
+def OPTFF(cache_size, requests):
     cache = []
     hits = 0
 
@@ -47,12 +49,18 @@ def OPTFF(cache_size, requests):
                 cache.append(request)
             else:
                 future_requests = requests[requests.index(request) + 1:]
-                future_cache = [item for item in cache if item in future_requests]
-                # remove furthest in future request
+                reverse_future_requests = future_requests[::-1]
+                future_cache = []
+                for item in cache:
+                    if item in future_requests:
+                        future_cache.append(item)
+                # remove farthest in future
                 if future_cache:
-                    to_remove = max(future_cache, key=lambda x: future_requests.index(x))
+                    to_remove = min(future_cache, key=lambda x: reverse_future_requests.index(x))
                     cache.remove(to_remove)
                 else:
                     cache.pop(0)
+                cache.append(request)
+    return hits
                 cache.append(request)
     return hits
