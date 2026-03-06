@@ -14,5 +14,16 @@ def generate_size_and_requests():
         requests.append(random.randint(1, 20))
     return cache_size, requests
 
-if __name__ == "__main__":
-    main()
+def run_gen():
+    num_tests = 3
+
+    for i in range(num_tests):
+        cache_size, requests = generate_size_and_requests()
+        FIFO_hit = FIFO(cache_size, requests)
+        LRU_hit = LRU(cache_size, requests)
+        OPTFF_hit = OPTFF(cache_size, requests)
+        output = f"Cache Size = {cache_size}\n Requests = {requests}\n Misses:\n Fifo - {len(requests) - FIFO_hit}\n LRU - {len(requests) - LRU_hit}\n OPTFF - {len(requests) - OPTFF_hit} "
+        print(output)
+
+
+run_gen()
