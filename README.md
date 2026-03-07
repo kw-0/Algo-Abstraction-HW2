@@ -9,10 +9,10 @@ Any assumptions (input/output format, dependencies, etc.)
 - Input format:
     k m
 r1 r2 r3 ... rm
-- Output format
- FIFO  : <number_of_misses>
-LRU   : <number_of_misses>
-OPTFF : <number_of_misses>
+- Output format  
+ FIFO  : <number_of_misses>  
+LRU   : <number_of_misses>  
+OPTFF : <number_of_misses>  
 - Example Command:  
       9 5  
       1 3 2 3 1  
