@@ -1,6 +1,3 @@
-from functools import cache
-
-
 def FIFO(cache_size, requests):
     cache = []
     hits = 0
@@ -15,8 +12,7 @@ def FIFO(cache_size, requests):
                 cache.pop(0)
                 cache.append(request)
 
-    return hits
-
+    return len(requests)-hits
 
 def LRU(cache_size, requests):
     cache = []
@@ -34,30 +30,32 @@ def LRU(cache_size, requests):
                 cache.pop(0)
                 cache.append(request)
 
-    return hits
+    return len(requests)-hits
 
 def OPTFF(cache_size, requests):
     cache = []
     hits = 0
 
-    for request in requests:
+    for i, request in enumerate(requests):
         if request in cache:
             hits += 1
         else:
             if len(cache) < cache_size:
                 cache.append(request)
             else:
-                future_requests = requests[requests.index(request) + 1:]
-                reverse_future_requests = future_requests[::-1]
-                future_cache = []
+                future_requests = requests[i+1:]
+                distances = []
+                # reverse_future_requests = future_requests[::-1]
+                # future_cache = []
                 for item in cache:
                     if item in future_requests:
-                        future_cache.append(item)
+                        distances.append(future_requests.index(item))
+                    else:
+                        distances.append(float('inf'))
+
                 # remove farthest in future
-                if future_cache:
-                    to_remove = min(future_cache, key=lambda x: reverse_future_requests.index(x))
-                    cache.remove(to_remove)
-                else:
-                    cache.pop(0)
+                to_remove = cache[distances.index(max(distances))]
+                cache.remove(to_remove)
                 cache.append(request)
-    return hits
+
+    return len(requests)-hits
