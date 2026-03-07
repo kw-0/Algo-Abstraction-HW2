@@ -61,3 +61,6 @@ Note from **theorem**: FF is optimal offline eviction algorithm
 * **A,B,C**,D,A,B,C,D  
   * LRU \- 8  
   * OPTFF \- 5
+ 
+Question 3: Prove OPTFF is Optimal
+SEE ATTACHED PDF "Belady_Proof.pdf"
