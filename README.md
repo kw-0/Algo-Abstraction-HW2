@@ -55,7 +55,7 @@ ANSWER:
 
 Note from **theorem**: FF is optimal offline eviction algorithm
 
-* LRU is k-competitive for any sequence of requests , LRU()  kFF() \+ k  
+* LRU is k-competitive for any sequence of requests r, LRU(r)  kFF(r) \+ k  
 * Therefore, there is a sequence outside of the k-competitive bounds that has it so that OPTFF incurs fewer misses than LRU.  
 * LRU makes choices based on the past, Belady’s makes choices based on the future.  
 * **A,B,C**,D,A,B,C,D  
