@@ -13,8 +13,8 @@ r1 r2 r3 ... rm
  FIFO  : <number_of_misses>
 LRU   : <number_of_misses>
 OPTFF : <number_of_misses>
-- Example Command:\n
-      9 5\n
-      1 3 2 3 1
+- Example Command:  
+      9 5  
+      1 3 2 3 1  
 
 Your solutions to the written component
