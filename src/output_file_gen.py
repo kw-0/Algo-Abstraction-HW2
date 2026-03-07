@@ -7,12 +7,10 @@ def read_input_file(filepath):
 
     return cache_size, requests
 
-cache_size, requests = read_input_file("file1.in")
-
 
 def run():
-    input_files = ["file1.in", "file2.in", "file3.in"]
-    with open("out.txt", "w") as out:
+    input_files = ["data/file1.in", "data/file2.in", "data/file3.in"]
+    with open("data/out.txt", "w") as out:
         for i, filename in enumerate(input_files):
             cache_size, requests = read_input_file(filename)
 

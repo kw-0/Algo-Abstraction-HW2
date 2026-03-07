@@ -14,7 +14,7 @@ def run_gen():
     for i in range(num_tests):
         cache_size, requests = generate_size_and_requests()
 
-        with open(f"file{i+1}.in", "w") as f:
+        with open(f"data/file{i+1}.in", "w") as f:
             f.write(f"{cache_size} {len(requests)}\n")
             f.write(" ".join(map(str, requests)))
 
